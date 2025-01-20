@@ -39,29 +39,31 @@ int32_t main() {
     cout.tie(0);
 class Solution {
   public:
-    Node* rotate(Node* head, int k) {
-         if (!head || k == 0) return head;
+    Node* sortedMerge(Node* head1, Node* head2) {
+        Node* dummy = new Node(0);
+        Node* current = dummy;
 
-        int length = 1;
-        Node* tail = head;
-        while (tail->next) {
-            tail = tail->next;
-            length++;
+        while (head1 != nullptr && head2 != nullptr) {
+            if (head1->data <= head2->data) {
+                current->next = head1;
+                head1 = head1->next;
+            } else {
+                current->next = head2;
+                head2 = head2->next;
+            }
+            current = current->next;
         }
 
-        k %= length;
-        if (k == 0) return head;
-
-        Node* newTail = head;
-        for (int i = 1; i < k; i++) {
-            newTail = newTail->next;
+        if (head1 != nullptr) {
+            current->next = head1;
+        } else {
+            current->next = head2;
         }
 
-        Node* newHead = newTail->next;
-        newTail->next = NULL;
-        tail->next = head;
+        Node* mergedHead = dummy->next;
+        delete dummy;
+        return mergedHead;
 
-        return newHead;
     }
 };
 return 0;

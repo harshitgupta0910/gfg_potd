@@ -24,6 +24,15 @@ typedef map<string, string> mpss;
 #define ll long long
 #define int ll
 using pii = pair<int, int>;
+struct Node {
+  int data;
+  struct Node *next;
+
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
+};
 int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
