@@ -28,12 +28,6 @@ struct Node {
     int data;
     Node *next;
     Node *random;
-
-    Node(int x) {
-        data = x;
-        next = NULL;
-        random = NULL;
-    }
 };
 int32_t main() {
     ios::sync_with_stdio(false);
