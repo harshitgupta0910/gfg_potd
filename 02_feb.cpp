@@ -1,6 +1,7 @@
-//Author :D HARSHIT 
+// Author: D HARSHIT
 #include <bits/stdc++.h>
 using namespace std;
+
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int, int> pi;
@@ -14,40 +15,32 @@ typedef map<char, int> mpci;
 typedef map<int, string> mpis;
 typedef map<string, int> mpsi;
 typedef map<string, string> mpss;
+
 #define F first
 #define S second
 #define PB push_back
 #define MP make_pair
 #define len(s) (int)s.size()
 #define print(x) cout << x << '\n'
-#define ull unsigned long long
-#define ll long long
-#define int ll
-using pii = pair<int, int>;
-struct Node
-{
+
+struct TreeNode {
     int data;
-    struct Node *next;
-    Node(int x) {
-        data = x;
-        next = NULL;
-    }
-     Node(int val) {
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int val) {
         data = val;
         left = nullptr;
         right = nullptr;
     }
 };
-int32_t main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+
 class Solution {
-  public:
-vector<vector<int>> levelOrder(Node *root) {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
         vector<vector<int>> result;
         if (!root) return result;
-        queue<Node*> q;
+
+        queue<TreeNode*> q;
         q.push(root);
 
         while (!q.empty()) {
@@ -55,7 +48,7 @@ vector<vector<int>> levelOrder(Node *root) {
             vector<int> levelNodes;
 
             for (int i = 0; i < levelSize; i++) {
-                Node* node = q.front();
+                TreeNode* node = q.front();
                 q.pop();
                 levelNodes.push_back(node->data);
 
@@ -69,5 +62,30 @@ vector<vector<int>> levelOrder(Node *root) {
         return result;
     }
 };
-return 0;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    // Example usage
+    TreeNode* root = new TreeNode(1);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    root->left->left = new TreeNode(4);
+    root->left->right = new TreeNode(5);
+    root->right->left = new TreeNode(6);
+    root->right->right = new TreeNode(7);
+
+    Solution sol;
+    vector<vector<int>> result = sol.levelOrder(root);
+
+    for (const auto& level : result) {
+        for (int val : level) {
+            cout << val << " ";
+        }
+        cout << '\n';
+    }
+
+    return 0;
 }
