@@ -24,33 +24,19 @@ typedef map<string, string> mpss;
 #define ll long long
 #define int ll
 using pii = pair<int, int>;
-int qw(vector<int>& h) {
-    int n = h.size();
-    vector<int> dt(n, INT_MAX);
-    dt[0] = 0;
-    queue<int> q;
-    q.push(0);
-    while (!q.empty()) {
-        int u = q.front();q.pop();
-        if (u == n - 1)return dt[u];
-        if (u + 1 < n && h[u + 1] != -1 && dt[u + 1] == INT_MAX) {
-            dt[u + 1] = dt[u] + 1;
-            q.push(u + 1);
-        }
-        if (u + h[u] < n && h[u + h[u]] != -1 && dt[u + h[u]] == INT_MAX) {
-            dt[u + h[u]] = dt[u] + 1;
-            q.push(u + h[u]);
-        }
-    }
-    return -1;
-}
 int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int n;cin >> n;
-    vector<int> h(n);
-    for (int i = 0; i < n; ++i)cin >> h[i];
-    cout << qw(h) << endl;
-    return 0;
+int n;cin>>n;
+vector<int>v(n);
+for(auto i :v) cin>>i;
+int m;cin>>m;
+int ad = accumulate(v.begin(),v.end(),0);
+for(int i=0;i<m;i++){
+    int p,x;
+    cin>>p>>x;
+    cout<<ad-v[p-1]+x<<endl;
+}
+return 0;
 }
