@@ -34,28 +34,29 @@ struct Node {
         left = right = NULL;
     }
 };
+int kthSmallest(Node *root, int k) {
+    int count = 0;
+    int result = -1;
+    inorder(root, k, count, result);
+    return result;
+}
+
+void inorder(Node *root, int k, int& count, int& result) {
+    if (root == nullptr || result != -1) {
+        return;
+    }
+    inorder(root->left, k, count, result);
+    count++;
+    if (count == k) {
+        result = root->data;
+        return;
+    }
+    inorder(root->right, k, count, result);
+}
 int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int kthSmallest(Node *root, int k) {
-        int count = 0;
-        int result = -1;
-        inorder(root, k, count, result);
-        return result;
-    }
-    
-    void inorder(Node *root, int k, int& count, int& result) {
-        if (root == nullptr || result != -1) {
-            return;
-        }
-        inorder(root->left, k, count, result);
-        count++;
-        if (count == k) {
-            result = root->data;
-            return;
-        }
-        inorder(root->right, k, count, result);
-    }
+
 return 0;
 }
