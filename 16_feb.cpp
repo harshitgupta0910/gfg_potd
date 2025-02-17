@@ -57,6 +57,7 @@ vector<int> serialize(Node *root) {
     return result;
 }
 Node *deSerialize(vector<int> &arr) {
+    
     if (arr.empty()) return NULL;
     
     queue<Node*> q;
