@@ -45,9 +45,11 @@ vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
     }
     return result;
 }
+
 int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
+    
     cout.tie(0);
 
 return 0;
