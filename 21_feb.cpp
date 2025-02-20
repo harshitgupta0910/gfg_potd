@@ -25,7 +25,7 @@ typedef map<string, string> mpss;
 #define int ll
 using pii = pair<int, int>;
 bool isBalanced(string& s) {
-    stack<char> st;
+stack<char> st;
 for (char c : s) {
     if (c == '(' || c == '{' || c == '[') {
         st.push(c);
@@ -42,7 +42,6 @@ for (char c : s) {
     }
 }
 return st.empty();
-    // code here
 }
 int32_t main() {
     ios::sync_with_stdio(false);
