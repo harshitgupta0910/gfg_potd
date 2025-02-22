@@ -25,7 +25,6 @@ typedef map<string, string> mpss;
 #define int ll
 using pii = pair<int, int>;
 vector<int> nextLargerElement(vector<int>& arr) {
-    // code here
 int n = arr.size();
 vector<int> v(n, -1);
 stack<int> st;
@@ -36,9 +35,7 @@ for(int i = 0; i < n; i++) {
     }
     st.push(i);
 }
-
 return v;
-    
 }
 int32_t main() {
     ios::sync_with_stdio(false);
