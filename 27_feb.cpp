@@ -16,6 +16,7 @@ typedef map<string, int> mpsi;
 typedef map<string, string> mpss;
 #define F first
 #define S second
+
 #define PB push_back
 #define MP make_pair
 #define len(s) (int)s.size()
@@ -41,7 +42,6 @@ void pop() {
 int peek() {
     return s.empty() ? -1 : s.top();
 }
-
 int getMin() {
     return minS.empty() ? -1 : minS.top();
 }
