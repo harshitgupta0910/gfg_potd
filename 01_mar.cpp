@@ -45,6 +45,7 @@ class Solution {
                   string prev = st.top();
                   st.pop();
                   for (int i = 0; i < c; i++) {
+                    
                       prev += res;
                   }
                   res = prev;
@@ -59,6 +60,7 @@ class Solution {
 int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
+    
     cout.tie(0);
 
 return 0;
