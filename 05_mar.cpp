@@ -29,7 +29,6 @@ int longestStringChain(vector<string>& words) {
     sort(words.begin(), words.end(), [](const string& a, const string& b) {
         return a.length() < b.length();
     });
-
     unordered_map<string, int> dp;
     int mln = 0;
     for (const string& word : words) {
