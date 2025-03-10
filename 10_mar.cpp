@@ -27,7 +27,6 @@ using pii = pair<int, int>;
 int editDistance(string& s1, string& s2) {
     int m = s1.length(), n = s2.length();
 vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
-
 for (int i = 0; i <= m; i++) {
     for (int j = 0; j <= n; j++) {
         if (i == 0) {
@@ -43,6 +42,7 @@ for (int i = 0; i <= m; i++) {
 }
 return dp[m][n];
 }
+
 int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
