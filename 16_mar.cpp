@@ -28,10 +28,8 @@ int minJumps(vector<int>& arr) {
     // code here
     int n = arr.size();
     if (n <= 1) return 0;
-    
     vector<int> jumps(n, -1);
     jumps[0] = 0;
-    
     for (int i = 1; i < n; i++) {
         for (int j = 0; j < i; j++) {
             if (j + arr[j] >= i) {
@@ -41,7 +39,7 @@ int minJumps(vector<int>& arr) {
             }
         }
     }
-    
+    //fgds
     return jumps[n - 1];
 
 }
