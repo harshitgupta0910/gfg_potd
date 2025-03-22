@@ -1,0 +1,55 @@
+//Author :D HARSHIT 
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef vector<int> vi;
+typedef pair<int, int> pi;
+typedef set<int> sti;
+typedef set<long> stl;
+typedef set<char> stc;
+typedef set<string> str;
+typedef map<int, int> mpii;
+typedef map<int, char> mpic;
+typedef map<char, int> mpci;
+typedef map<int, string> mpis;
+typedef map<string, int> mpsi;
+typedef map<string, string> mpss;
+#define F first
+#define S second
+#define PB push_back
+#define MP make_pair
+#define len(s) (int)s.size()
+#define print(x) cout << x << '\n'
+#define ull unsigned long long
+#define ll long long
+#define int ll
+using pii = pair<int, int>;
+int maxValue(vector<int>& arr) {
+    int n = arr.size();
+if (n == 0) return 0;
+if (n == 1) return arr[0];
+if (n == 2) return max(arr[0], arr[1]);
+vector<int> dp1(n);
+dp1[0] = 0;
+dp1[1] = arr[1];
+for (int i = 2; i < n; i++) {
+    dp1[i] = max(dp1[i-1], dp1[i-2] + arr[i]);
+}
+vector<int> dp2(n);
+dp2[0] = arr[0];
+dp2[1] = max(arr[0], arr[1]);
+for (int i = 2; i < n - 1; i++) {
+    dp2[i] = max(dp2[i-1], dp2[i-2] + arr[i]);
+}
+dp2[n-1] = dp2[n-2];
+
+return max(dp1[n-1], dp2[n-1]);
+
+}
+int32_t main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+return 0;
+}
