@@ -67,9 +67,7 @@ int helper(int start, int end, int req, string &s, vector<vector<vector<int>>>&d
     }
     return dp[start][end][req] =  ans;
 }
-
 int countWays(string &s) {
-    // code here
     int n=s.length();
     vector<vector<vector<int>>>dp(n, vector<vector<int>>(n, vector<int>(2,-1)));
     return helper(0, n-1, 1, s, dp);
