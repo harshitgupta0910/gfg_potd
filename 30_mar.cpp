@@ -25,7 +25,6 @@ typedef map<string, string> mpss;
 #define int ll
 using pii = pair<int, int>;
 int startStation(vector<int> &gas, vector<int> &cost) {
-    // Your code here
     int tg = 0,tc = 0,tank = 0,start = 0;
     for (int i = 0; i < gas.size(); i++) {
         tg += gas[i];
@@ -42,6 +41,5 @@ int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-
 return 0;
 }
